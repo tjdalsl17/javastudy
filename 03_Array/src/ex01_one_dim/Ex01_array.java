@@ -187,7 +187,7 @@ public class Ex01_array {
 	}
 	
 	public static void main(String[] args) {
-		ex09();
+		ex05();
 
 	}
 
