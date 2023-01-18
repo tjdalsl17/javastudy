@@ -10,7 +10,7 @@ public class User {	// 객체를 하나만 생성
 		
 	}
 	
-	// static 메소드 static 필드를 사용하기 위해서)
+	// static 메소드 (static 필드를 사용하기 위해서)
 	// user 필드를 외부에서 사용할 수 있도록 반환하는 일종의 Getter
 	public static User getInstance() {
 		return user;
