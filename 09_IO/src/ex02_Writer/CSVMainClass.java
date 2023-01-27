@@ -3,7 +3,7 @@ package ex02_Writer;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +46,10 @@ public class CSVMainClass {
 		product3.put("maker", "삼성");
 		product3.put("price", 300);
 		
-		List<Map<String, Object>> products = new ArrayList<Map<String, Object>>();
-		products.add(product1);
-		products.add(product2);
-		products.add(product3);
+		List<Map<String, Object>> products = Arrays.asList(product1, product2, product3);
 		
-		File dir = new File("C:" + File.separator + "storage" + File.separator + "product.csv");
+		
+		File dir = new File("C:" + File.separator + "storage");
 		if(dir.exists() == false) {
 			dir.mkdirs();
 		}
@@ -72,7 +70,7 @@ public class CSVMainClass {
 
 		
 		
-		
+	
 
 	}
 
