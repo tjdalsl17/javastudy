@@ -146,12 +146,14 @@ public class MainClass {
 	
 	public static void ex03_complete() {
 		
+		// 버퍼 기반으로 읽기
+		
 		File file = new File("C:" + File.separator + "storage", "ex03.bin");
 		
 		BufferedReader br = null;
 		
 		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(file))); // 바이트 -> 문자 -> 버퍼
 			
 			String line = null;
 			StringBuilder sb = new StringBuilder();
