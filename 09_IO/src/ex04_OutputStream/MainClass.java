@@ -1,5 +1,6 @@
 package ex04_OutputStream;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -76,9 +77,36 @@ public class MainClass {
 		System.out.println("ex02.bin 파일의 크기 : " + file.length() + "바이트");
 		
 	}
+
+	public static void ex03() {
+		
+		File dir = new File("C:" + File.separator + "storage");
+		File file = new File(dir, "ex03.bin");
+
+		BufferedOutputStream bos = null;
+		
+		try {
+			
+			bos = new BufferedOutputStream(new FileOutputStream(file));
+			
+			bos.write("반갑습니다\n또만나요".getBytes("UTF-8"));
+			
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(bos != null) {
+					bos.close(); 	// 위 try 실행문 마지막에 써도 가능 (그럼 finally 사라짐)
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("ex03.bin 파일의 크기 : " + file.length() + "바이트" );
+	}
 	
 	public static void main(String[] args) {
-		ex02();
+		ex03();
 
 	}
 
