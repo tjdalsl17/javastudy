@@ -1,5 +1,7 @@
 package practice02;
 
+import java.util.Scanner;
+
 public class MainClass {
 
 	// 문제1. 통장(balance)에 최초 5000원이 있다.
@@ -37,6 +39,30 @@ public class MainClass {
 	// 정답. 총 5번만에 성공.
 	public static void ex02() {
 		
+		Scanner sc = new Scanner(System.in);
+		int target = (int)(Math.random() * 10000) + 1;
+		int guess;
+		int times = 0;
+		do {
+			System.out.print("입력 >>> ");
+			guess = sc.nextInt();
+			times++;
+			if (guess < 1 || guess > 10000) {
+				System.out.println("1~10000 사이만 유효합니다.");
+				continue;
+			}
+			if (guess == target) {
+				System.out.println("정답! 총 " + times + "번만에 성공.");
+				
+			} else if (guess > target) {
+				System.out.println("Down!");
+			} else {
+				System.out.println("Up!");
+			} 
+		} 
+		while(guess != target);
+		sc.close();
+		
 	}
 	
 	// 문제3. 자동으로 진행되는 윷 던지기를 구현하시오. 윷이나 모가 나오면 추가로 던지시오.
@@ -48,6 +74,20 @@ public class MainClass {
 	// "모", "윷", "도", 10칸 이동한다.
 	public static void ex03() {
 		
+		
+		String[] yut = {"", "도", "개", "걸", "윷", "모"};
+		int totalMove = 0;
+		while (true) {
+			int move = (int)(Math.random() * 5) + 1;
+			System.out.print("\"" + yut[move] + "\"");
+			totalMove += move;
+			if (move <= 3) {
+				System.out.println("," + totalMove + "칸 이동한다.");
+				break;
+			} else {
+				System.out.print(", ");
+			}
+		}
 	}
 	
 	// 문제4. 0~9 사이 난수를 100개 생성하시오.
@@ -194,7 +234,7 @@ public class MainClass {
 		
 	}
 	public static void main(String[] args) {
-		ex01();
+		ex03();
 
 	}
 
