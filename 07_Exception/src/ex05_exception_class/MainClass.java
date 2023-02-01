@@ -1,4 +1,3 @@
-
 package ex05_exception_class;
 
 import java.util.Scanner;

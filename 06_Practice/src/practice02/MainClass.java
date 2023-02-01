@@ -40,27 +40,22 @@ public class MainClass {
 	public static void ex02() {
 		
 		Scanner sc = new Scanner(System.in);
-		int target = (int)(Math.random() * 10000) + 1;
+		int Num = (int)(Math.random() * 10000) + 1;
 		int guess;
 		int times = 0;
 		do {
 			System.out.print("입력 >>> ");
 			guess = sc.nextInt();
 			times++;
-			if (guess < 1 || guess > 10000) {
-				System.out.println("1~10000 사이만 유효합니다.");
-				continue;
-			}
-			if (guess == target) {
-				System.out.println("정답! 총 " + times + "번만에 성공.");
-				
-			} else if (guess > target) {
-				System.out.println("Down!");
-			} else {
+			if(guess == Num) {
+				System.out.println("정답. 총 " + times + "번 만에 성공");
+			} else if(guess > Num) {
 				System.out.println("Up!");
-			} 
-		} 
-		while(guess != target);
+				
+			} else
+				System.out.println("Down!");
+			
+		} while(guess != Num);
 		sc.close();
 		
 	}
@@ -105,6 +100,20 @@ public class MainClass {
 	// 9 : ########### 11
 	public static void ex04() {
 		
+		int arr[] = new int[100];
+		int count[] = new int[10];
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random() * 10);
+			count[arr[i]]++;
+		}
+		for (int i = 0; i < count.length; i++) {
+			StringBuilder sb = new StringBuilder();
+			for (int j = 0; j < count[i]; j++) {
+				sb.append("#");
+			}
+			String graph = sb.toString();
+			System.out.println(i + ":" + graph + " " + count[i]);
+		}
 	}
 	
 	// 문제5. 간단한 성적 관리 프로그램을 구현하시오.
@@ -130,6 +139,20 @@ public class MainClass {
 	// 합계 180  183  189  552	
 	public static void ex05() {
 		
+		Scanner sc = new Scanner(System.in);
+		
+		 String[] name = {"정숙", "미희", "상철",  "합계"};
+		 String[] sub = {"국어", "영어", "수학", "총점"};
+		 int [][] score = new int[name.length][sub.length];
+		 for(int i = 0; i < score.length -1; i++) {
+			 for(int j = 0; j < score[i].length; j++) {
+				 System.out.print(name[i] + "의 " + sub[j] + "점수 >>> ");
+				 score[i][j] = sc.nextInt();
+				 score[i][sub.length - 1] += score[i][j];
+				 
+			 }
+		 }
+		
 	}
 	
 	// 문제6. 4계절이 저장되어 있는 영한 사전(2차원 배열)을 이용하여 문제를 해결하시오.
@@ -144,7 +167,28 @@ public class MainClass {
 	// 오답
 	public static void ex06() {
 		
-	}
+		Scanner sc = new Scanner(System.in);
+		
+		String[][] dictionary = {
+			{"봄", "spring"},
+			{"여름", "summer"},
+			{"가을", "fall"},
+			{"겨울", "winter"}
+		
+	};
+		for(int i = 0; i < dictionary.length; i++) {
+			System.out.print(dictionary[i][0]+ "을 영어로 하면? >>>");
+			String answer = sc.next();
+		if(answer.equalsIgnoreCase(dictionary[i][1])) {
+			System.out.println("정답");
+		} else
+			System.out.println("오답");
+		} 
+		
+			sc.close();
+		} 
+
+			
 	
 	// 문제7. 다음 순서에 따라서 5 x 5 형태의 숫자 빙고판을 자동으로 생성하시오.
 	// 지시사항)
@@ -234,7 +278,7 @@ public class MainClass {
 		
 	}
 	public static void main(String[] args) {
-		ex03();
+		ex02();
 
 	}
 
