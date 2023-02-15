@@ -7,7 +7,7 @@ public class MainClass {
 		Gun gun = new Gun();
 		
 		try {
-			gun.reload(10); 	// reload 메소드 호출
+			gun.reload(5); 	// reload 메소드 호출
 			for(int n = 0; n < 11; n++) {
 				gun.shoot();
 			}
