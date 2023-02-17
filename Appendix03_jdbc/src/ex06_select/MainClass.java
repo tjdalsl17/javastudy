@@ -127,12 +127,12 @@ public class MainClass {
 			con = DriverManager.getConnection(url, p);
 			
 			
-			String sql = "SELECT MEMBER_NO, ID, NAME, ADDRESS, JOIN_DATE";
+			sql = "SELECT MEMBER_NO, ID, NAME, ADDRESS, JOIN_DATE";
 			sql += " FROM MEMBER_TBL";
 			
 			ps = con.prepareStatement(sql);
 			
-			rs = ps.executeQuery();  // SELECT문 실행 메소드
+			rs = ps.executeQuery();  // SELECT문 실행 메소드는 executeQuery()이다.
 			
 			// 결과 행이 여러 개 있으므로 ArrayList를 준비한다.
 			List<Member> memberList = new ArrayList<Member>();
